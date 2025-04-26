@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp8306ranr43a"]
+
+[ext_resource type="Script" uid="uid://tyyclwpl4g0b" path="res://scripts/characterScripts/hava/hava.gd" id="1_0g87e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3k5s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xp5g8"]
+radius = 168.003
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0g87e"]
+radius = 90.0222
+
+[node name="Hava" type="Node2D"]
+
+[node name="hava" type="CharacterBody2D" parent="."]
+script = ExtResource("1_0g87e")
+metadata/_edit_group_ = true
+
+[node name="hava_coll" type="CollisionShape2D" parent="hava"]
+shape = SubResource("RectangleShape2D_g3k5s")
+
+[node name="skin" type="Sprite2D" parent="hava"]
+
+[node name="base_attack" type="Area2D" parent="hava"]
+
+[node name="base_attack_coll" type="CollisionShape2D" parent="hava/base_attack"]
+shape = SubResource("CircleShape2D_xp5g8")
+debug_color = Color(0.798559, 0.42203, 0, 0.42)
+
+[node name="dash" type="Area2D" parent="hava"]
+
+[node name="dashcoll" type="CollisionShape2D" parent="hava/dash"]
+shape = SubResource("CircleShape2D_0g87e")
+
+[node name="dashtimer" type="Timer" parent="hava/dash"]
+wait_time = 4.0
+
+[node name="fırtına_timer" type="Timer" parent="hava"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="timeout" from="hava/dash/dashtimer" to="hava" method="_on_dashtimer_timeout"]
+[connection signal="timeout" from="hava/fırtına_timer" to="hava" method="_on_fırtına_timer_timeout"]

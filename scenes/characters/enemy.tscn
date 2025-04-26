@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cofh8lb6yyav1"]
+
+[ext_resource type="Script" uid="uid://dq0t6urgp5hu4" path="res://scripts/characterScripts/enemies/enemy.gd" id="1_7jb55"]
+[ext_resource type="Script" uid="uid://b786jusouy8gq" path="res://scripts/characterScripts/enemies/attack_area.gd" id="2_fulqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxn32"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7jb55"]
+radius = 25.0
+
+[node name="Enemy" type="Node2D"]
+
+[node name="enemy" type="CharacterBody2D" parent="."]
+script = ExtResource("1_7jb55")
+metadata/_edit_group_ = true
+
+[node name="enemyColl" type="CollisionShape2D" parent="enemy"]
+shape = SubResource("RectangleShape2D_rxn32")
+
+[node name="attackArea" type="Area2D" parent="enemy"]
+script = ExtResource("2_fulqv")
+
+[node name="attac_area_collision" type="CollisionShape2D" parent="enemy/attackArea"]
+shape = SubResource("CircleShape2D_7jb55")
+debug_color = Color(0.648478, 0.338907, 0.985039, 0.42)
+
+[node name="cooldown" type="Timer" parent="enemy/attackArea"]
+
+[connection signal="body_entered" from="enemy/attackArea" to="enemy" method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="enemy/attackArea" to="enemy/attackArea" method="_on_body_entered"]
+[connection signal="body_exited" from="enemy/attackArea" to="enemy/attackArea" method="_on_body_exited"]
+[connection signal="timeout" from="enemy/attackArea/cooldown" to="enemy/attackArea" method="_on_cooldown_timeout"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4m630mxnsupu"]
+
+[ext_resource type="Script" uid="uid://1von3r17j0lm" path="res://scripts/characterScripts/light/light.gd" id="1_81xyg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihcww"]
+
+[node name="Light" type="Node2D"]
+
+[node name="light" type="CharacterBody2D" parent="."]
+script = ExtResource("1_81xyg")
+
+[node name="speed_of_light" type="Timer" parent="light"]
+wait_time = 9.0
+
+[node name="coll" type="CollisionShape2D" parent="light"]
+shape = SubResource("RectangleShape2D_ihcww")
+
+[node name="shine" type="Timer" parent="light"]
+
+[node name="speed" type="Timer" parent="light"]
+wait_time = 4.0
+
+[node name="shine_time" type="Timer" parent="light"]
+wait_time = 1.4
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="timeout" from="light/speed_of_light" to="light" method="_on_speed_of_light_timeout"]
+[connection signal="timeout" from="light/shine" to="light" method="_on_shine_timeout"]
+[connection signal="timeout" from="light/speed" to="light" method="_on_speed_timeout"]
+[connection signal="timeout" from="light/shine_time" to="light" method="_on_shine_time_timeout"]

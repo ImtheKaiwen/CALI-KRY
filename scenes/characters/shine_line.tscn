@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://byu0hijib3bdb"]
+
+[ext_resource type="Script" uid="uid://bq8qlkhkj88wv" path="res://scripts/characterScripts/light/shine_line.gd" id="1_thvjt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rryq"]
+size = Vector2(983.5, 54)
+
+[node name="ShineLine" type="Area2D"]
+script = ExtResource("1_thvjt")
+
+[node name="coll" type="CollisionShape2D" parent="."]
+position = Vector2(465.25, -1)
+shape = SubResource("RectangleShape2D_2rryq")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_second_timeout"]

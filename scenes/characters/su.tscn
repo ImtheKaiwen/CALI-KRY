@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgf8dxtugasty"]
+
+[ext_resource type="Script" uid="uid://c6fhjkbs7p525" path="res://scripts/characterScripts/su/su.gd" id="1_l55vm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuy6g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_11tv5"]
+radius = 71.1758
+
+[node name="Su" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="su" type="CharacterBody2D" parent="."]
+script = ExtResource("1_l55vm")
+
+[node name="sucoll" type="CollisionShape2D" parent="su"]
+shape = SubResource("RectangleShape2D_fuy6g")
+
+[node name="skin" type="Sprite2D" parent="su"]
+
+[node name="base_attack_area" type="Area2D" parent="su"]
+
+[node name="base_attack_coll" type="CollisionShape2D" parent="su/base_attack_area"]
+shape = SubResource("CircleShape2D_11tv5")
+debug_color = Color(0.954993, 0.12164, 0.442674, 0.42)
+
+[node name="skill1_timer" type="Timer" parent="su"]
+wait_time = 5.0
+
+[node name="skill2_timer" type="Timer" parent="su"]
+wait_time = 10.0
+
+[connection signal="timeout" from="su/skill1_timer" to="su" method="_on_skill_1_timer_timeout"]
+[connection signal="timeout" from="su/skill2_timer" to="su" method="_on_skill_2_timer_timeout"]

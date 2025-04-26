@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0siawjtfppsu"]
+
+[ext_resource type="Script" uid="uid://bf8nfnjwq07ov" path="res://scripts/characterScripts/ates/atesbase_attack_area.gd" id="1_f7s5i"]
+[ext_resource type="Script" uid="uid://1anexuopccug" path="res://scripts/characterScripts/ates/ates.gd" id="1_nahh4"]
+[ext_resource type="Script" uid="uid://cxlax46dn0u4h" path="res://scripts/characterScripts/ates/ates_cemberi.gd" id="3_2h1jg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nahh4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2h1jg"]
+size = Vector2(6, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n4sy6"]
+radius = 37.0
+
+[node name="Ates" type="Node2D"]
+
+[node name="ates" type="CharacterBody2D" parent="."]
+script = ExtResource("1_nahh4")
+movement_speed = 100
+
+[node name="atesCollision" type="CollisionShape2D" parent="ates"]
+shape = SubResource("RectangleShape2D_nahh4")
+
+[node name="skin" type="Sprite2D" parent="ates"]
+
+[node name="baseAttackArea" type="Area2D" parent="ates"]
+script = ExtResource("1_f7s5i")
+
+[node name="BaseAttackCollision" type="CollisionShape2D" parent="ates/baseAttackArea"]
+position = Vector2(0, -13.5)
+shape = SubResource("RectangleShape2D_2h1jg")
+debug_color = Color(0.991572, 0, 0.26379, 0.42)
+
+[node name="ates_cemberi" type="Area2D" parent="ates"]
+script = ExtResource("3_2h1jg")
+
+[node name="ates_cemberi_timer" type="Timer" parent="ates/ates_cemberi"]
+wait_time = 5.0
+
+[node name="ates_cemberiCollision" type="CollisionShape2D" parent="ates/ates_cemberi"]
+shape = SubResource("CircleShape2D_n4sy6")
+disabled = true
+debug_color = Color(0.722307, 0.478371, 5.77569e-07, 0.42)
+
+[node name="skill_timer" type="Timer" parent="ates/ates_cemberi"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[connection signal="area_entered" from="ates/ates_cemberi" to="ates/ates_cemberi" method="_on_area_entered"]
+[connection signal="body_entered" from="ates/ates_cemberi" to="ates/ates_cemberi" method="_on_body_entered"]
+[connection signal="timeout" from="ates/ates_cemberi/ates_cemberi_timer" to="ates/ates_cemberi" method="_on_ates_cemberi_timer_timeout"]
+[connection signal="timeout" from="ates/ates_cemberi/skill_timer" to="ates/ates_cemberi" method="_on_skill_timer_timeout"]

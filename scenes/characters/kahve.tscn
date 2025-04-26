@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd25w20yxpjp8"]
+
+[ext_resource type="Texture2D" uid="uid://163b5g7x1x23" path="res://assets/kahve.jpg" id="1_k1tu1"]
+
+[node name="Kahve" type="Sprite2D"]
+texture = ExtResource("1_k1tu1")

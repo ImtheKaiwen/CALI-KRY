@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://djb4cfm05hepu"]
+
+[ext_resource type="Script" uid="uid://bp8gxp8weyie8" path="res://scripts/characterScripts/toprak/sars_area.gd" id="1_vqne1"]
+[ext_resource type="Script" uid="uid://w1wvtkkxshrg" path="res://scripts/characterScripts/toprak/toprak.gd" id="1_xrsm3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2rx56"]
+radius = 15.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ljrm"]
+
+[node name="Toprak" type="Node2D"]
+
+[node name="sarsArea" type="Area2D" parent="."]
+script = ExtResource("1_vqne1")
+
+[node name="sars_collision" type="CollisionShape2D" parent="sarsArea"]
+shape = SubResource("CircleShape2D_2rx56")
+debug_color = Color(1, 0.00857738, 0.0416929, 0.42)
+
+[node name="damage_time" type="Timer" parent="sarsArea"]
+wait_time = 6.0
+
+[node name="skill_time" type="Timer" parent="sarsArea"]
+wait_time = 13.0
+
+[node name="cooldown" type="Timer" parent="sarsArea"]
+
+[node name="toprak" type="CharacterBody2D" parent="."]
+script = ExtResource("1_xrsm3")
+
+[node name="toprakCollision" type="CollisionShape2D" parent="toprak"]
+shape = SubResource("RectangleShape2D_5ljrm")
+
+[node name="zirh_timer" type="Timer" parent="toprak"]
+wait_time = 5.0
+
+[node name="skill1timer" type="Timer" parent="toprak"]
+wait_time = 10.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[connection signal="body_entered" from="sarsArea" to="sarsArea" method="_on_body_entered"]
+[connection signal="body_exited" from="sarsArea" to="sarsArea" method="_on_body_exited"]
+[connection signal="timeout" from="sarsArea/damage_time" to="sarsArea" method="_on_damage_time_timeout"]
+[connection signal="timeout" from="sarsArea/damage_time" to="toprak" method="_on_damage_time_timeout"]
+[connection signal="timeout" from="sarsArea/skill_time" to="sarsArea" method="_on_skill_time_timeout"]
+[connection signal="timeout" from="sarsArea/skill_time" to="toprak" method="_on_skill_time_timeout"]
+[connection signal="timeout" from="sarsArea/cooldown" to="sarsArea" method="_on_cooldown_timeout"]
+[connection signal="timeout" from="toprak/zirh_timer" to="toprak" method="_on_zirh_timer_timeout"]
+[connection signal="timeout" from="toprak/skill1timer" to="toprak" method="_on_skill_1_timer_timeout"]
