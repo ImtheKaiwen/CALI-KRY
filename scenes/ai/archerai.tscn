@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://drqu8m3t78ik8"]
+
+[ext_resource type="Script" uid="uid://dm41g2jb3at2r" path="res://scripts/characterScripts/ai/archerai.gd" id="1_xodj3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocqvr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_01s1w"]
+radius = 102.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hrsum"]
+radius = 168.003
+
+[node name="Archerai" type="Node2D"]
+
+[node name="archerai" type="CharacterBody2D" parent="."]
+script = ExtResource("1_xodj3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="archerai"]
+shape = SubResource("RectangleShape2D_ocqvr")
+
+[node name="attackarea" type="Area2D" parent="archerai"]
+
+[node name="coll" type="CollisionShape2D" parent="archerai/attackarea"]
+shape = SubResource("CircleShape2D_01s1w")
+debug_color = Color(0.975942, 0, 0.415615, 0.42)
+
+[node name="detectarea" type="Area2D" parent="archerai"]
+
+[node name="coll" type="CollisionShape2D" parent="archerai/detectarea"]
+shape = SubResource("CircleShape2D_hrsum")
+debug_color = Color(2.45467e-06, 0.650224, 0.105505, 0.42)
+
+[node name="cooldown" type="Timer" parent="archerai"]
+
+[connection signal="body_entered" from="archerai/attackarea" to="archerai" method="_on_attackarea_body_entered"]
+[connection signal="body_exited" from="archerai/attackarea" to="archerai" method="_on_attackarea_body_exited"]
+[connection signal="body_entered" from="archerai/detectarea" to="archerai" method="_on_detectarea_body_entered"]
+[connection signal="body_exited" from="archerai/detectarea" to="archerai" method="_on_detectarea_body_exited"]
+[connection signal="timeout" from="archerai/cooldown" to="archerai" method="_on_cooldown_timeout"]

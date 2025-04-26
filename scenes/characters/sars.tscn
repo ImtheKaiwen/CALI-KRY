@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxk45bfemipi"]
+
+[ext_resource type="Script" uid="uid://dw4y4pbh8fpi7" path="res://scripts/characterScripts/toprak/sars.gd" id="1_p5jbf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iy0c8"]
+radius = 14.0
+
+[node name="Sars" type="Area2D"]
+script = ExtResource("1_p5jbf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_iy0c8")
+debug_color = Color(0.781102, 0.434775, 0.09098, 0.42)
+
+[node name="attack_time" type="Timer" parent="."]
+
+[connection signal="timeout" from="attack_time" to="." method="_on_attack_time_timeout"]

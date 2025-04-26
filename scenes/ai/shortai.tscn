@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bms5r0fhbolsa"]
+
+[ext_resource type="Script" uid="uid://bapoo2lhd2k6u" path="res://scripts/characterScripts/ai/shortai.gd" id="1_628j0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iehky"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_taf8q"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rdsyp"]
+radius = 100.02
+
+[node name="Shortai" type="Node2D"]
+
+[node name="shortai" type="CharacterBody2D" parent="."]
+script = ExtResource("1_628j0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shortai"]
+shape = SubResource("RectangleShape2D_iehky")
+
+[node name="attack_area" type="Area2D" parent="shortai"]
+
+[node name="coll" type="CollisionShape2D" parent="shortai/attack_area"]
+shape = SubResource("CircleShape2D_taf8q")
+debug_color = Color(0.980507, 0, 0.379082, 0.42)
+
+[node name="detect_area" type="Area2D" parent="shortai"]
+
+[node name="coll" type="CollisionShape2D" parent="shortai/detect_area"]
+shape = SubResource("CircleShape2D_rdsyp")
+debug_color = Color(0.414746, 0.605352, 3.85046e-07, 0.42)
+
+[node name="attackCooldown" type="Timer" parent="."]
+
+[connection signal="body_entered" from="shortai/attack_area" to="shortai" method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="shortai/attack_area" to="shortai" method="_on_attack_area_body_exited"]
+[connection signal="body_entered" from="shortai/detect_area" to="shortai" method="_on_detect_area_body_entered"]
+[connection signal="body_exited" from="shortai/detect_area" to="shortai" method="_on_detect_area_body_exited"]
+[connection signal="timeout" from="attackCooldown" to="shortai" method="_on_attack_cooldown_timeout"]

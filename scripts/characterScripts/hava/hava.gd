@@ -60,8 +60,12 @@ func shoot_arrow():
 	get_tree().current_scene.add_child(ok)
 	print("ok fırlatıldı")
 	
-
-
+	
+	
+func take_damage(damage):
+	health -= damage
+	if health <= 0:
+		queue_free()
 func _on_dashtimer_timeout() -> void:
 	print("dash yeniden kullanılabilir")
 	can_use_skill1 = true

@@ -17,7 +17,7 @@ var current_mode = "light"
 @onready var weather = preload("res://scenes/characters/hava.tscn")
 @onready var soil = preload("res://scenes/characters/toprak.tscn")
 @onready var light = preload("res://scenes/characters/light.tscn")
-
+@onready var light_basic_attack = preload("res://scenes/characters/light_basic_attack.tscn")
 @onready var shine_scene = preload("res://scenes/characters/shine_line.tscn")
 @onready var speed_of_light = $speed_of_light
 @onready var shine = $shine
@@ -30,7 +30,8 @@ func _ready():
 	
 	
 func _process(delta: float) -> void:
-	
+	if Input.is_action_just_pressed("ATTACK"):
+		shoot_arrow()
 		
 	if Input.is_action_just_pressed("SKILL1") and can_use_speed_of_light:
 		use_speed_of_light()
@@ -49,6 +50,15 @@ func use_speed_of_light():
 	speed_timer.start()
 		
 	
+func shoot_arrow():
+	var arrow = light_basic_attack.instantiate()
+	var mouse_pos =  get_global_mouse_position()
+	var direction = (mouse_pos - global_position).normalized()
+	
+	arrow.global_position = global_position
+	arrow.set_direction(direction)
+	
+	get_tree().current_scene.add_child(arrow)
 func swap(scene):
 	var f = scene.instantiate()
 	f.global_position = self.global_position

@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4m630mxnsupu"]
+[gd_scene load_steps=4 format=3 uid="uid://d4m630mxnsupu"]
 
 [ext_resource type="Script" uid="uid://1von3r17j0lm" path="res://scripts/characterScripts/light/light.gd" id="1_81xyg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihcww"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_81xyg"]
+radius = 52.1536
 
 [node name="Light" type="Node2D"]
 
@@ -22,6 +25,12 @@ wait_time = 4.0
 
 [node name="shine_time" type="Timer" parent="light"]
 wait_time = 1.4
+
+[node name="Area2D" type="Area2D" parent="light"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="light/Area2D"]
+shape = SubResource("CircleShape2D_81xyg")
+debug_color = Color(0.534378, 0.569113, 0.0466706, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

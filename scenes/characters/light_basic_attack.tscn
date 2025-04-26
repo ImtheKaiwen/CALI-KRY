@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpv1xdkswshl3"]
+
+[ext_resource type="Script" uid="uid://eyccv1eg8ml0" path="res://scripts/characterScripts/light/light_basic_attack.gd" id="1_nn341"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp5ok"]
+size = Vector2(22, 4)
+
+[node name="LightBasicAttack" type="Area2D"]
+script = ExtResource("1_nn341")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dp5ok")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -18,11 +18,13 @@ config/icon="res://icon.svg"
 
 AtesGlobal="*res://scripts/globalScripts/atesGlobal.gd"
 Gb="*res://scripts/globalScripts/GB.gd"
+Toprakglobal="*res://scripts/globalScripts/toprakglobal.gd"
 
 [display]
 
 window/size/viewport_width=1024
 window/size/viewport_height=768
+window/size/borderless=true
 
 [input]
 
@@ -89,5 +91,6 @@ key5={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

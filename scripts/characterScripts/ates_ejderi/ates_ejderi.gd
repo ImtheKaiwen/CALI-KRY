@@ -12,99 +12,72 @@ var damage = 500
 var cooldown = false
 @onready var cooldowntimer = $cooldown
 @onready var follow_area = $followArea
+
 func _ready() -> void:
 	live_timer.start()
-	
 
 func _on_live_timer_timeout() -> void:
 	print("skill-2 ended (ejderha yok edildi)\n->10sn bekleme süresi")
-	
 	queue_free()
 
 func _process(delta: float) -> void:
-	
-	if can_hit:
-		if choosen and not cooldown:  # cooldown aktif değilse vur
+	if attacking:
+		update_choosen_enemy()
+
+	if can_hit and choosen and not cooldown:
+		if is_instance_valid(choosen):
 			choosen.take_damage(damage)
 			cooldown = true
 			cooldowntimer.start()
-		
-	
-	if enemies:
-		var closest_enemy = null
-		var closest_distance = INF  # sonsuzdan başla ki her mesafe daha küçük olsun
-		
-		for body in enemies:
-			var distance = global_position.distance_to(body.global_position)
-			if distance < closest_distance:
-				closest_distance = distance
-				closest_enemy = body
-		
-		if closest_enemy and not can_hit:
-			choosen = closest_enemy
-			var direction = (closest_enemy.global_position - global_position).normalized()
-			velocity = direction * speed
-			
-		
-				
-			
-
-	move(delta)
 
 func _physics_process(delta: float) -> void:
 	move(delta)
 	move_and_slide()
 
-
-
 func move(delta):
-	if attacking == false:
+	if attacking and choosen:
+		# Hedef düşmana doğru hareket
+		var direction = (choosen.global_position - global_position).normalized()
+		velocity = direction * speed
+	else:
+		# AtesGlobal konumuna geri dön
 		var direction = (AtesGlobal.ates_position - global_position).normalized()
 		var distance = global_position.distance_to(AtesGlobal.ates_position)
-		
 		if distance > follow_distance:
 			velocity = direction * speed
 		else:
 			velocity = Vector2.ZERO
 
-		
-
-
-func _on_followarea_area_entered(area: Area2D) -> void:
-
-
-	pass
-func _on_followarea_area_exited(area: Area2D) -> void:
-	pass	
-
+func update_choosen_enemy():
+	# Eğer şu anki choosen düşman yok olduysa veya öldüyse
+	if choosen == null or not is_instance_valid(choosen):
+		if enemies.size() > 0:
+			choosen = enemies[0]
+		else:
+			choosen = null
+			attacking = false  # Hiç düşman kalmadıysa geri döner
+			return
 
 func _on_detectarea_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
 		enemies.append(body)
 		attacking = true
-
+		update_choosen_enemy()
 
 func _on_detectarea_body_exited(body: Node2D) -> void:
 	if body in enemies:
 		enemies.erase(body)
-		print(body)
-		if enemies.is_empty():
-			attacking = false
-		else:
-			attacking = true
-
+		if body == choosen:
+			choosen = null
+		update_choosen_enemy()
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
 		can_hit = true
-		velocity = Vector2.ZERO
-
-
-func _on_cooldown_timeout() -> void:
-	cooldown = false
-
 
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
 		can_hit = false
-		enemies = []
+
+func _on_cooldown_timeout() -> void:
+	cooldown = false

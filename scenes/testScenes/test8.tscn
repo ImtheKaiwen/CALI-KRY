@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d04qib2edivqw"]
+
+[ext_resource type="PackedScene" uid="uid://bms5r0fhbolsa" path="res://scenes/ai/shortai.tscn" id="1_473rt"]
+[ext_resource type="PackedScene" uid="uid://c0siawjtfppsu" path="res://scenes/characters/ates.tscn" id="2_0oxkq"]
+
+[node name="Test8" type="Node2D"]
+
+[node name="Shortai" parent="." instance=ExtResource("1_473rt")]
+position = Vector2(144, 124)
+
+[node name="Ates" parent="." instance=ExtResource("2_0oxkq")]
+position = Vector2(269, 178)
