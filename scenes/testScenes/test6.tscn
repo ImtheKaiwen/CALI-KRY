@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://did6pbhbl2svu"]
+
+[ext_resource type="PackedScene" uid="uid://c0siawjtfppsu" path="res://scenes/characters/ates.tscn" id="1_sj327"]
+[ext_resource type="PackedScene" uid="uid://cofh8lb6yyav1" path="res://scenes/characters/enemy.tscn" id="2_lsvya"]
+
+[node name="Test6" type="Node2D"]
+
+[node name="Enemy3" parent="." instance=ExtResource("2_lsvya")]
+position = Vector2(518, 228)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_lsvya")]
+position = Vector2(343, 230)
+
+[node name="Ates" parent="." instance=ExtResource("1_sj327")]
+position = Vector2(570, 398)
+
+[node name="Enemy" parent="." instance=ExtResource("2_lsvya")]
+position = Vector2(781, 264)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(513, 385)

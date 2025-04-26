@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dule14hbxd3nv"]
+[gd_scene load_steps=6 format=3 uid="uid://dule14hbxd3nv"]
 
 [ext_resource type="Script" uid="uid://d1s0y4e7aex3u" path="res://scripts/characterScripts/ates_ejderi/ates_ejderi.gd" id="1_2y214"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3x8tb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2y214"]
-radius = 77.0065
+radius = 100.245
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4wtlt"]
+radius = 29.0172
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7kvpe"]
+radius = 263.0
 
 [node name="AtesEjderi" type="Node2D"]
 z_index = -1
@@ -28,6 +34,27 @@ debug_color = Color(0.991873, 0, 0.259762, 0.42)
 [node name="live_timer" type="Timer" parent="ates_ejderi"]
 wait_time = 15.0
 
+[node name="followarea" type="Area2D" parent="ates_ejderi"]
+
+[node name="coll" type="CollisionShape2D" parent="ates_ejderi/followarea"]
+shape = SubResource("CircleShape2D_4wtlt")
+debug_color = Color(0.071, 0.649505, 0, 0.42)
+
+[node name="detectarea" type="Area2D" parent="ates_ejderi"]
+
+[node name="coll" type="CollisionShape2D" parent="ates_ejderi/detectarea"]
+shape = SubResource("CircleShape2D_7kvpe")
+debug_color = Color(0.656531, 0.322782, 1, 0.42)
+
+[node name="cooldown" type="Timer" parent="ates_ejderi"]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[connection signal="body_entered" from="ates_ejderi/attackArea" to="ates_ejderi" method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="ates_ejderi/attackArea" to="ates_ejderi" method="_on_attack_area_body_exited"]
 [connection signal="timeout" from="ates_ejderi/live_timer" to="ates_ejderi" method="_on_live_timer_timeout"]
+[connection signal="area_entered" from="ates_ejderi/followarea" to="ates_ejderi" method="_on_followarea_area_entered"]
+[connection signal="area_exited" from="ates_ejderi/followarea" to="ates_ejderi" method="_on_followarea_area_exited"]
+[connection signal="body_entered" from="ates_ejderi/detectarea" to="ates_ejderi" method="_on_detectarea_body_entered"]
+[connection signal="body_exited" from="ates_ejderi/detectarea" to="ates_ejderi" method="_on_detectarea_body_exited"]
+[connection signal="timeout" from="ates_ejderi/cooldown" to="ates_ejderi" method="_on_cooldown_timeout"]

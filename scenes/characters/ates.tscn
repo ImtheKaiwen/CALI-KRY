@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0siawjtfppsu"]
+[gd_scene load_steps=9 format=3 uid="uid://c0siawjtfppsu"]
 
 [ext_resource type="Script" uid="uid://bf8nfnjwq07ov" path="res://scripts/characterScripts/ates/atesbase_attack_area.gd" id="1_f7s5i"]
 [ext_resource type="Script" uid="uid://1anexuopccug" path="res://scripts/characterScripts/ates/ates.gd" id="1_nahh4"]
@@ -12,6 +12,9 @@ size = Vector2(6, 11)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n4sy6"]
 radius = 49.0102
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rdrr3"]
+radius = 42.0
 
 [node name="Ates" type="Node2D"]
 
@@ -50,6 +53,12 @@ debug_color = Color(0.722307, 0.478371, 5.77569e-07, 0.42)
 
 [node name="dragon_spawner" type="Timer" parent="ates"]
 wait_time = 25.0
+
+[node name="followarea" type="Area2D" parent="ates"]
+
+[node name="coll" type="CollisionShape2D" parent="ates/followarea"]
+shape = SubResource("CircleShape2D_rdrr3")
+debug_color = Color(0, 0.646756, 0.229144, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

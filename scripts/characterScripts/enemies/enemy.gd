@@ -11,6 +11,6 @@ func take_damage(damage):
 		health -= damage
 		print("enemy health :",health)
 	else:
-		queue_free()
+		get_parent().queue_free()
 func health_info():
 	return health
