@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="CALI KRY"
+run/main_scene="uid://cb34uit4hmlwp"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,11 +20,12 @@ config/icon="res://icon.svg"
 AtesGlobal="*res://scripts/globalScripts/atesGlobal.gd"
 Gb="*res://scripts/globalScripts/GB.gd"
 Toprakglobal="*res://scripts/globalScripts/toprakglobal.gd"
+SceneTransition="*res://scenes/scene_transition.tscn"
 
 [display]
 
-window/size/viewport_width=1024
-window/size/viewport_height=768
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/borderless=true
 
 [input]

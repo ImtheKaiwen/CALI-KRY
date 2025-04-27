@@ -323,6 +323,7 @@ radius = 15.0
 [node name="Toprak" type="Node2D"]
 
 [node name="toprak" type="CharacterBody2D" parent="."]
+motion_mode = 1
 script = ExtResource("1_xrsm3")
 
 [node name="skill2timer" type="Timer" parent="toprak"]
@@ -362,6 +363,8 @@ debug_color = Color(0.82873, 0.286306, 0.688446, 0.42)
 shape = SubResource("CircleShape2D_d2nkt")
 debug_color = Color(0.618094, 0.535373, 7.70092e-07, 0.42)
 
+[node name="skil2anim" type="Timer" parent="toprak"]
+
 [node name="sarsArea" type="Area2D" parent="."]
 script = ExtResource("1_vqne1")
 
@@ -378,23 +381,24 @@ wait_time = 13.0
 [node name="cooldown" type="Timer" parent="sarsArea"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(6, 6)
+zoom = Vector2(5, 5)
 
 [connection signal="timeout" from="toprak/skill2timer" to="toprak" method="_on_skill_2_timer_timeout"]
 [connection signal="timeout" from="toprak/zirh_timer" to="toprak" method="_on_zirh_timer_timeout"]
 [connection signal="timeout" from="toprak/skill1timer" to="toprak" method="_on_skill_1_timer_timeout"]
-[connection signal="timeout" from="toprak/hurttimer" to="sarsArea" method="_on_hurttimer_timeout"]
 [connection signal="timeout" from="toprak/hurttimer" to="toprak" method="_on_hurttimer_timeout"]
+[connection signal="timeout" from="toprak/hurttimer" to="sarsArea" method="_on_hurttimer_timeout"]
 [connection signal="timeout" from="toprak/DeathTimer" to="toprak" method="_on_death_timer_timeout"]
 [connection signal="body_entered" from="toprak/baseattack" to="toprak" method="_on_baseattack_body_entered"]
 [connection signal="body_entered" from="toprak/baseattack" to="toprak/baseattack" method="_on_body_entered"]
 [connection signal="body_exited" from="toprak/baseattack" to="toprak/baseattack" method="_on_body_exited"]
 [connection signal="timeout" from="toprak/baseattack/Timer" to="toprak" method="_on_timer_timeout"]
 [connection signal="timeout" from="toprak/baseattack/Timer" to="toprak/baseattack" method="_on_timer_timeout"]
+[connection signal="timeout" from="toprak/skil2anim" to="toprak" method="_on_skil_2_anim_timeout"]
 [connection signal="body_entered" from="sarsArea" to="sarsArea" method="_on_body_entered"]
 [connection signal="body_exited" from="sarsArea" to="sarsArea" method="_on_body_exited"]
-[connection signal="timeout" from="sarsArea/damage_time" to="sarsArea" method="_on_damage_time_timeout"]
 [connection signal="timeout" from="sarsArea/damage_time" to="toprak" method="_on_damage_time_timeout"]
-[connection signal="timeout" from="sarsArea/skill_time" to="sarsArea" method="_on_skill_time_timeout"]
+[connection signal="timeout" from="sarsArea/damage_time" to="sarsArea" method="_on_damage_time_timeout"]
 [connection signal="timeout" from="sarsArea/skill_time" to="toprak" method="_on_skill_time_timeout"]
+[connection signal="timeout" from="sarsArea/skill_time" to="sarsArea" method="_on_skill_time_timeout"]
 [connection signal="timeout" from="sarsArea/cooldown" to="sarsArea" method="_on_cooldown_timeout"]

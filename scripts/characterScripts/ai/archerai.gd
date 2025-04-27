@@ -11,8 +11,15 @@ var can_attack = true
 
 @onready var arrow = preload("res://scenes/ai/arrowai.tscn")
 @onready var cooldown = $cooldown
+@onready var animated_sprite = $AnimatedSprite2D
+
+
+var idles = ["idle", "idle_1"]
 
 func _ready() -> void:
+	randomize()
+	var anim = idles[randi() % idles.size()]
+	animated_sprite.play(anim)
 	add_to_group("enemies")
 	
 func take_damage(damage):
@@ -20,13 +27,12 @@ func take_damage(damage):
 	if health <=0 :
 		queue_free()
 
-
 func _physics_process(delta: float) -> void:
 
-	if player:
-		var distance = global_position.distance_to(player.global_position)
+	if player or Gb.last_seen_position:
+		var distance = global_position.distance_to(Gb.last_seen_position)
 		if distance > attack_range:
-			var direction = (player.global_position - global_position).normalized()
+			var direction = (Gb.last_seen_position - global_position).normalized()
 			velocity = direction * speed
 		else:
 			velocity = Vector2.ZERO
@@ -67,6 +73,8 @@ func _on_attackarea_body_exited(body: Node2D) -> void:
 func _on_detectarea_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player = body
+	else:
+		print("player değil")
 
 
 func _on_detectarea_body_exited(body: Node2D) -> void:

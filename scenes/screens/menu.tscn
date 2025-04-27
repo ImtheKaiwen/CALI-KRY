@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://cb34uit4hmlwp"]
+
+[ext_resource type="Script" uid="uid://cvqaqikx6ot7" path="res://scenes/screens/menu.gd" id="1_hrbkl"]
+[ext_resource type="Texture2D" uid="uid://qtmbp4ht5a3s" path="res://assets/arkaplan/Arkaplan YENİ.png" id="2_u7b51"]
+[ext_resource type="Texture2D" uid="uid://dtuthnbad7jag" path="res://assets/buttons/Ayarlar 1.png" id="3_oytj8"]
+[ext_resource type="Texture2D" uid="uid://1yxvm1xy1fnq" path="res://assets/buttons/Çıkış 2.png" id="4_27rkr"]
+[ext_resource type="Texture2D" uid="uid://y6op2k74yu5u" path="res://assets/buttons/Emeği g. 1.png" id="4_dwmnf"]
+[ext_resource type="Texture2D" uid="uid://drdd1olsmoabk" path="res://assets/buttons/Başla 1.png" id="5_27rkr"]
+[ext_resource type="Texture2D" uid="uid://bjp2hrwvjtubh" path="res://assets/buttons/Emeği g. 2.png" id="6_bjtxa"]
+[ext_resource type="Texture2D" uid="uid://crodvfpe201ty" path="res://assets/buttons/Çıkış 1.png" id="6_js71b"]
+[ext_resource type="Texture2D" uid="uid://cjanvalqdepic" path="res://assets/buttons/Ayarlar 2.png" id="8_75fs2"]
+[ext_resource type="Texture2D" uid="uid://dgyypbkoq8quk" path="res://assets/buttons/Başla 2.png" id="10_gi6c4"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hrbkl")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 6.0
+offset_right = 1921.0
+offset_bottom = 1082.0
+texture = ExtResource("2_u7b51")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(957, 547)
+
+[node name="exit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 880.0
+offset_right = 361.0
+offset_bottom = 1021.0
+texture_normal = ExtResource("6_js71b")
+texture_hover = ExtResource("4_27rkr")
+stretch_mode = 0
+
+[node name="EG" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 722.0
+offset_right = 366.0
+offset_bottom = 865.0
+texture_normal = ExtResource("4_dwmnf")
+texture_hover = ExtResource("6_bjtxa")
+stretch_mode = 0
+
+[node name="settings" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 573.0
+offset_right = 360.0
+offset_bottom = 714.0
+texture_normal = ExtResource("3_oytj8")
+texture_hover = ExtResource("8_75fs2")
+stretch_mode = 0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 413.0
+offset_right = 492.0
+offset_bottom = 560.0
+texture_normal = ExtResource("5_27rkr")
+texture_hover = ExtResource("10_gi6c4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

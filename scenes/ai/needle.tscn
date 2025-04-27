@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmyv0gcmf8d64"]
+
+[ext_resource type="Script" uid="uid://5ayt6koeb4bl" path="res://scripts/characterScripts/BOSS/needle.gd" id="1_tn5m6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ba2tr"]
+size = Vector2(20, 3)
+
+[node name="Needle" type="Area2D"]
+script = ExtResource("1_tn5m6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ba2tr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

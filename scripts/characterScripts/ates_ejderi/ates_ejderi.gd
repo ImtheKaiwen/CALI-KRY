@@ -12,15 +12,23 @@ var damage = 500
 var cooldown = false
 @onready var cooldowntimer = $cooldown
 @onready var follow_area = $followArea
-
+@onready var animated_sprite = $AnimatedSprite2D
 func _ready() -> void:
+	animated_sprite.play("idle")
 	live_timer.start()
 
 func _on_live_timer_timeout() -> void:
 	print("skill-2 ended (ejderha yok edildi)\n->10sn bekleme süresi")
 	queue_free()
+func chechsprite():
+	if velocity.x > 0:
+		animated_sprite.flip_h = true
+	else:
+		animated_sprite.flip_h = false
+	animated_sprite.play("idle")
 
 func _process(delta: float) -> void:
+	chechsprite()
 	if attacking:
 		update_choosen_enemy()
 

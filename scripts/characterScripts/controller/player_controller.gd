@@ -27,7 +27,7 @@ func swap(mode_name: String):
 		
 	current_player = characters[mode_name].instantiate()
 	add_child(current_player)
-	current_player.global_position = position
+	current_player.global_position = Gb.last_seen_position
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("key1") and Gb.current_mode != "light":

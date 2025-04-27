@@ -12,13 +12,17 @@ func _ready() -> void:
 	skill_timer.wait_time = 4
 	timer.one_shot = true
 	timer.wait_time = 5
-	
+
+@onready var skil1usedtimer = $skil1used
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("SKILL1"):
+		
+		skil1usedtimer.start()
 		active_skill()
 
 func active_skill():
 	if can_use:
+		AtesGlobal.skil1used = true
 		print("skill-1 started")
 		collision.disabled = false
 		timer.start()
@@ -26,7 +30,7 @@ func active_skill():
 
 func _on_ates_cemberi_timer_timeout() -> void:
 	print("skill-1 ended -- 4sn boyunca kullanılamaz")
-	
+	AtesGlobal.skil1used = false
 	collision.disabled = true
 	skill_timer.start()
 	

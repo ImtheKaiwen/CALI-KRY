@@ -1,8 +1,53 @@
-[gd_scene load_steps=6 format=3 uid="uid://dule14hbxd3nv"]
+[gd_scene load_steps=13 format=3 uid="uid://dule14hbxd3nv"]
 
 [ext_resource type="Script" uid="uid://d1s0y4e7aex3u" path="res://scripts/characterScripts/ates_ejderi/ates_ejderi.gd" id="1_2y214"]
+[ext_resource type="Texture2D" uid="uid://bvjsaxbxiwkl8" path="res://assets/cagrilan_kus2.png" id="2_4wtlt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kvpe"]
+atlas = ExtResource("2_4wtlt")
+region = Rect2(116, 0, 116, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0m382"]
+atlas = ExtResource("2_4wtlt")
+region = Rect2(232, 0, 116, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fh4c"]
+atlas = ExtResource("2_4wtlt")
+region = Rect2(348, 0, 116, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so1bf"]
+atlas = ExtResource("2_4wtlt")
+region = Rect2(464, 0, 116, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3hqm"]
+atlas = ExtResource("2_4wtlt")
+region = Rect2(580, 0, 116, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kwhic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kvpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0m382")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fh4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_so1bf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3hqm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3x8tb"]
+size = Vector2(37, 25)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2y214"]
 radius = 100.245
@@ -14,20 +59,29 @@ radius = 29.0172
 radius = 263.0
 
 [node name="AtesEjderi" type="Node2D"]
-z_index = -1
+z_index = 1
 
 [node name="ates_ejderi" type="CharacterBody2D" parent="."]
+motion_mode = 1
 script = ExtResource("1_2y214")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="ates_ejderi"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ates_ejderi"]
+sprite_frames = SubResource("SpriteFrames_kwhic")
+animation = &"idle"
+frame_progress = 0.420147
+offset = Vector2(29, 14)
 
 [node name="ates_ejderi_collision" type="CollisionShape2D" parent="ates_ejderi"]
+visible = false
+position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_3x8tb")
+disabled = true
 
 [node name="attackArea" type="Area2D" parent="ates_ejderi"]
 
 [node name="attackAreaCollision" type="CollisionShape2D" parent="ates_ejderi/attackArea"]
+visible = false
 shape = SubResource("CircleShape2D_2y214")
 debug_color = Color(0.991873, 0, 0.259762, 0.42)
 
@@ -37,12 +91,14 @@ wait_time = 15.0
 [node name="followarea" type="Area2D" parent="ates_ejderi"]
 
 [node name="coll" type="CollisionShape2D" parent="ates_ejderi/followarea"]
+visible = false
 shape = SubResource("CircleShape2D_4wtlt")
 debug_color = Color(0.071, 0.649505, 0, 0.42)
 
 [node name="detectarea" type="Area2D" parent="ates_ejderi"]
 
 [node name="coll" type="CollisionShape2D" parent="ates_ejderi/detectarea"]
+visible = false
 shape = SubResource("CircleShape2D_7kvpe")
 debug_color = Color(0.656531, 0.322782, 1, 0.42)
 

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvnnu6yepyikj"]
+
+[ext_resource type="Script" uid="uid://d4jqluj4oe80k" path="res://scripts/characterScripts/BOSS/spawn_area.gd" id="1_ypj0s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q1msd"]
+
+[node name="SpawnArea" type="Area2D"]
+script = ExtResource("1_ypj0s")
+metadata/_edit_group_ = true
+
+[node name="coll" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q1msd")
+
+[node name="pawn_timer" type="Timer" parent="."]
+
+[node name="duration_timer" type="Timer" parent="."]
+
+[node name="enemt_timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="pawn_timer" to="." method="_on_pawn_timer_timeout"]
+[connection signal="timeout" from="duration_timer" to="." method="_on_duration_timer_timeout"]
+[connection signal="timeout" from="enemt_timer" to="." method="_on_enemt_timer_timeout"]

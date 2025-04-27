@@ -12,25 +12,33 @@ var current_attack_speed = attack_speed
 var current_speed = speed
 var player = null
 
-@onready var attack_cooldown = $"../attackCooldown"
+@onready var attack_cooldown =$attackCooldown
 @onready var attack_area = $attack_area
 
+@onready var animated_sprite = $AnimatedSprite2D
+var anim = null
+var idles = ["enemy_1_idle","enemy_2_idle","enemy_3_idle","enemy_4_idle"]
 func _ready() -> void:
+	randomize()
+	var anim = idles[randi() % idles.size()]
+	animated_sprite.play(anim)
 	add_to_group("enemies")
 
 
 func _physics_process(delta: float) -> void:
 	print(player)
-	if player:
-		var distance = global_position.distance_to(player.global_position)
+	if player or Gb.last_seen_position:
+		var distance = global_position.distance_to(Gb.last_seen_position)
 		if distance > attack_range:
-			var direction = (player.global_position - global_position).normalized()
+			var direction = (Gb.last_seen_position - global_position).normalized()
 			velocity = direction * speed
 		else:
 			velocity = Vector2.ZERO
 	attack()
 	move_and_slide()
-				
+	
+func set_idle(name):
+	animated_sprite.play(name)
 
 func attack():
 	if enemy_area and can_attack:
@@ -44,6 +52,7 @@ func attack():
 func take_damage(damage):
 	health -= damage - (damage * float(armor) / 100.0)
 	if health <= 0:
+		print("enemy killed")
 		queue_free()
 
 		

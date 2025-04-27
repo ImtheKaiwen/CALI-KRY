@@ -1,6 +1,76 @@
-[gd_scene load_steps=5 format=3 uid="uid://drqu8m3t78ik8"]
+[gd_scene load_steps=15 format=3 uid="uid://drqu8m3t78ik8"]
 
 [ext_resource type="Script" uid="uid://dm41g2jb3at2r" path="res://scripts/characterScripts/ai/archerai.gd" id="1_xodj3"]
+[ext_resource type="Texture2D" uid="uid://do6eqnpgajtf8" path="res://assets/dusmanlar.png" id="2_ocqvr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01s1w"]
+atlas = ExtResource("2_ocqvr")
+region = Rect2(0, 0, 49, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrsum"]
+atlas = ExtResource("2_ocqvr")
+region = Rect2(49, 0, 49, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elfkp"]
+atlas = ExtResource("2_ocqvr")
+region = Rect2(98, 0, 49, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ti0c2"]
+atlas = ExtResource("2_ocqvr")
+region = Rect2(147, 0, 49, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocqvr"]
+atlas = ExtResource("2_ocqvr")
+region = Rect2(0, 102, 33, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekhc6"]
+atlas = ExtResource("2_ocqvr")
+region = Rect2(33, 102, 33, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wiqat"]
+atlas = ExtResource("2_ocqvr")
+region = Rect2(66, 102, 33, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krykm"]
+atlas = ExtResource("2_ocqvr")
+region = Rect2(99, 102, 33, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ekhc6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01s1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrsum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elfkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ti0c2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocqvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekhc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wiqat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krykm")
+}],
+"loop": true,
+"name": &"idle_1",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ocqvr"]
 
@@ -14,6 +84,10 @@ radius = 168.003
 
 [node name="archerai" type="CharacterBody2D" parent="."]
 script = ExtResource("1_xodj3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="archerai"]
+sprite_frames = SubResource("SpriteFrames_ekhc6")
+animation = &"idle_1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="archerai"]
 shape = SubResource("RectangleShape2D_ocqvr")

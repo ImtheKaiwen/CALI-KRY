@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuy6g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_11tv5"]
-radius = 71.1758
+radius = 181.003
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_11tv5"]
 atlas = ExtResource("2_fuy6g")
@@ -267,9 +267,8 @@ animations = [{
 
 [node name="Su" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="su" type="CharacterBody2D" parent="."]
+motion_mode = 1
 script = ExtResource("1_l55vm")
 
 [node name="sucoll" type="CollisionShape2D" parent="su"]
@@ -292,5 +291,17 @@ sprite_frames = SubResource("SpriteFrames_yvpd5")
 animation = &"walk"
 frame_progress = 0.296894
 
+[node name="skil1used" type="Timer" parent="su"]
+
+[node name="skil2used" type="Timer" parent="su"]
+
+[node name="hurt" type="Timer" parent="su"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+
 [connection signal="timeout" from="su/skill1_timer" to="su" method="_on_skill_1_timer_timeout"]
 [connection signal="timeout" from="su/skill2_timer" to="su" method="_on_skill_2_timer_timeout"]
+[connection signal="timeout" from="su/skil1used" to="su" method="_on_skil_1_used_timeout"]
+[connection signal="timeout" from="su/skil2used" to="su" method="_on_skil_2_used_timeout"]
+[connection signal="timeout" from="su/hurt" to="su" method="_on_hurt_timeout"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://btmjpntba72wx"]
+
+[ext_resource type="Texture2D" uid="uid://8qk1r24n5ha8" path="res://assets/arkaplan/toprak_karakteri_odasi.png" id="1_if4jf"]
+
+[node name="ToprakSahnesi" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_if4jf")

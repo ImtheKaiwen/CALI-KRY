@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dieeik20ld12g"]
+
+[ext_resource type="PackedScene" uid="uid://bt21rnaxuh5mf" path="res://scenes/ai/BOSS.tscn" id="1_faoom"]
+[ext_resource type="PackedScene" uid="uid://c75x7rrbnh1fy" path="res://scenes/characters/playerController.tscn" id="2_faoom"]
+
+[node name="Test10" type="Node2D"]
+
+[node name="Boss" parent="." instance=ExtResource("1_faoom")]
+position = Vector2(197, 183)
+
+[node name="PlayerController" parent="." instance=ExtResource("2_faoom")]
+position = Vector2(868, 585)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(512, 384)

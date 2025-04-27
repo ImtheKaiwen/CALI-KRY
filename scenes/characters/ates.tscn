@@ -1,9 +1,250 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0siawjtfppsu"]
+[gd_scene load_steps=39 format=3 uid="uid://c0siawjtfppsu"]
 
 [ext_resource type="Script" uid="uid://bf8nfnjwq07ov" path="res://scripts/characterScripts/ates/atesbase_attack_area.gd" id="1_f7s5i"]
 [ext_resource type="Script" uid="uid://1anexuopccug" path="res://scripts/characterScripts/ates/ates.gd" id="1_nahh4"]
-[ext_resource type="Texture2D" uid="uid://dlcqawbvxxkvo" path="res://assets/kırmızı.jpg" id="2_n4sy6"]
+[ext_resource type="Texture2D" uid="uid://b4vnc30o2fo3h" path="res://assets/Soldier.png" id="2_n4sy6"]
 [ext_resource type="Script" uid="uid://cxlax46dn0u4h" path="res://scripts/characterScripts/ates/ates_cemberi.gd" id="3_2h1jg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdrr3"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgf5n"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(100, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h6a2"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(200, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy0st"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(300, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvwe4"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(400, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vp2i"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(500, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viopa"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(0, 600, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pdos"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(100, 600, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx8fp"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(200, 600, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0n0q"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(300, 600, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mlwh"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(0, 500, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akgbn"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(100, 500, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nta4r"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(200, 500, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jiwc"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(300, 500, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg2t0"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tt6g"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mmeg"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qswhl"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlwnm"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fqa5"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh5ve"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(300, 300, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx4od"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(400, 300, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xviw"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(500, 300, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb4t0"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52n40"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20bmg"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yl5p"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(300, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmv00"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(400, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ff14"]
+atlas = ExtResource("2_n4sy6")
+region = Rect2(500, 100, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_grbll"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdrr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgf5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h6a2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy0st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvwe4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vp2i")
+}],
+"loop": true,
+"name": &"basic_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viopa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pdos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx8fp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0n0q")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mlwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akgbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nta4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jiwc")
+}],
+"loop": true,
+"name": &"get_damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg2t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tt6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mmeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qswhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlwnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fqa5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh5ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx4od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xviw")
+}],
+"loop": true,
+"name": &"skill1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb4t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52n40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20bmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yl5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmv00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ff14")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nahh4"]
 
@@ -19,13 +260,18 @@ radius = 42.0
 [node name="Ates" type="Node2D"]
 
 [node name="ates" type="CharacterBody2D" parent="."]
+motion_mode = 1
 script = ExtResource("1_nahh4")
 movement_speed = 100
+metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="ates"]
-texture = ExtResource("2_n4sy6")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ates"]
+sprite_frames = SubResource("SpriteFrames_grbll")
+animation = &"skill1"
+frame_progress = 0.161912
 
 [node name="atesCollision" type="CollisionShape2D" parent="ates"]
+visible = false
 shape = SubResource("RectangleShape2D_nahh4")
 
 [node name="baseAttackArea" type="Area2D" parent="ates"]
@@ -34,6 +280,7 @@ script = ExtResource("1_f7s5i")
 [node name="attack_timer" type="Timer" parent="ates/baseAttackArea"]
 
 [node name="BaseAttackCollision" type="CollisionShape2D" parent="ates/baseAttackArea"]
+visible = false
 position = Vector2(0, -13.5)
 shape = SubResource("RectangleShape2D_2h1jg")
 debug_color = Color(0.991572, 0, 0.26379, 0.42)
@@ -45,11 +292,14 @@ script = ExtResource("3_2h1jg")
 wait_time = 5.0
 
 [node name="ates_cemberiCollision" type="CollisionShape2D" parent="ates/ates_cemberi"]
+visible = false
 shape = SubResource("CircleShape2D_n4sy6")
 disabled = true
 debug_color = Color(0.722307, 0.478371, 5.77569e-07, 0.42)
 
 [node name="skill_timer" type="Timer" parent="ates/ates_cemberi"]
+
+[node name="skil1used" type="Timer" parent="ates/ates_cemberi"]
 
 [node name="dragon_spawner" type="Timer" parent="ates"]
 wait_time = 25.0
@@ -57,11 +307,19 @@ wait_time = 25.0
 [node name="followarea" type="Area2D" parent="ates"]
 
 [node name="coll" type="CollisionShape2D" parent="ates/followarea"]
+visible = false
 shape = SubResource("CircleShape2D_rdrr3")
 debug_color = Color(0, 0.646756, 0.229144, 0.42)
 
+[node name="hurttimer" type="Timer" parent="ates"]
+
+[node name="skil2used" type="Timer" parent="ates"]
+
+[node name="attacking_timer" type="Timer" parent="ates"]
+
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+enabled = false
+zoom = Vector2(5, 5)
 
 [connection signal="body_entered" from="ates/baseAttackArea" to="ates/baseAttackArea" method="_on_body_entered"]
 [connection signal="timeout" from="ates/baseAttackArea/attack_timer" to="ates/baseAttackArea" method="_on_attack_timer_timeout"]
@@ -69,4 +327,8 @@ zoom = Vector2(2, 2)
 [connection signal="body_entered" from="ates/ates_cemberi" to="ates/ates_cemberi" method="_on_body_entered"]
 [connection signal="timeout" from="ates/ates_cemberi/ates_cemberi_timer" to="ates/ates_cemberi" method="_on_ates_cemberi_timer_timeout"]
 [connection signal="timeout" from="ates/ates_cemberi/skill_timer" to="ates/ates_cemberi" method="_on_skill_timer_timeout"]
+[connection signal="timeout" from="ates/ates_cemberi/skil1used" to="ates/ates_cemberi" method="_on_skil_1_used_timeout"]
 [connection signal="timeout" from="ates/dragon_spawner" to="ates" method="_on_dragon_spawner_timeout"]
+[connection signal="timeout" from="ates/hurttimer" to="ates" method="_on_hurttimer_timeout"]
+[connection signal="timeout" from="ates/skil2used" to="ates" method="_on_skil_2_used_timeout"]
+[connection signal="timeout" from="ates/attacking_timer" to="ates" method="_on_attacking_timer_timeout"]

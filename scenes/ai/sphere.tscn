@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://cxkbe7m6nvvxg"]
+
+[ext_resource type="Script" uid="uid://bvjwph1d0kpgk" path="res://scripts/characterScripts/BOSS/sphere.gd" id="1_p4c3a"]
+[ext_resource type="Texture2D" uid="uid://b7ibufd4ujfiq" path="res://assets/Syndra q Skill png.png" id="2_o4pba"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o4pba"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw4iy"]
+atlas = ExtResource("2_o4pba")
+region = Rect2(0, 0, 126, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw3g3"]
+atlas = ExtResource("2_o4pba")
+region = Rect2(126, 0, 126, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0ni2"]
+atlas = ExtResource("2_o4pba")
+region = Rect2(252, 0, 126, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7jxo"]
+atlas = ExtResource("2_o4pba")
+region = Rect2(378, 0, 126, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n0fa"]
+atlas = ExtResource("2_o4pba")
+region = Rect2(504, 0, 126, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75syt"]
+atlas = ExtResource("2_o4pba")
+region = Rect2(630, 0, 126, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wcbgq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nw4iy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw3g3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0ni2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7jxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n0fa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75syt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Sphere" type="Area2D"]
+script = ExtResource("1_p4c3a")
+
+[node name="coll" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o4pba")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.201389, 0.201389)
+sprite_frames = SubResource("SpriteFrames_wcbgq")
+frame = 1
+frame_progress = 0.248471
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

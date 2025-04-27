@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://o5t73h8q8b2x"]
+
+[ext_resource type="Script" uid="uid://cxd4bg1l65ndw" path="res://scripts/characterScripts/BOSS/archer_spawn_area.gd" id="1_pugs2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nbs3w"]
+
+[node name="ArcherSpawnArea" type="Area2D"]
+script = ExtResource("1_pugs2")
+metadata/_edit_group_ = true
+
+[node name="col" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nbs3w")
+
+[node name="spawn_timer" type="Timer" parent="."]
+
+[node name="duration_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="duration_timer" to="." method="_on_duration_timer_timeout"]

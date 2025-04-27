@@ -9,7 +9,7 @@ func _ready() -> void:
 	start_pos = global_position
 	
 func _process(delta: float) -> void:
-	if start_pos.distance_to(global_position) > 71:
+	if start_pos.distance_to(global_position) > 180:
 		queue_free()
 	if direction != Vector2.ZERO:
 		position += direction * speed * delta

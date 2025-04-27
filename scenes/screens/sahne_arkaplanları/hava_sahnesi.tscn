@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhe2sypkept8m"]
+
+[ext_resource type="Texture2D" uid="uid://cmbetn1an50tc" path="res://assets/arkaplan/hava_karakteri_odasi.png" id="1_cam4m"]
+
+[node name="HavaSahnesi" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_cam4m")

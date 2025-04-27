@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwnpnqi8dl36k"]
+
+[ext_resource type="PackedScene" uid="uid://cvnnu6yepyikj" path="res://scenes/ai/spawn_area.tscn" id="1_sxj1w"]
+[ext_resource type="PackedScene" uid="uid://c0siawjtfppsu" path="res://scenes/characters/ates.tscn" id="2_xrvp3"]
+[ext_resource type="Texture2D" uid="uid://btsn3r4bk5n4y" path="res://scenes/screens/sahne_arkaplanları/ates_karakteri_odasi.png" id="3_t1kv4"]
+[ext_resource type="PackedScene" uid="uid://drqu8m3t78ik8" path="res://scenes/ai/archerai.tscn" id="4_f81j4"]
+
+[node name="AtesSahne" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_t1kv4")
+
+[node name="SpawnArea" parent="." instance=ExtResource("1_sxj1w")]
+position = Vector2(771, 342)
+
+[node name="Ates" parent="." instance=ExtResource("2_xrvp3")]
+position = Vector2(939, 973)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(962, 545)
+scale = Vector2(904.82, -7566.24)
+
+[node name="Archerai" parent="." instance=ExtResource("4_f81j4")]
+position = Vector2(1462, 665)
