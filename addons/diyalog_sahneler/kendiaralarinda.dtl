@@ -1,0 +1,6 @@
+[background arg="res://addons/diyalog_sahneler/karanlik_bolgesi.png" fade="0.0"]
+join faye left
+faye: Sonunda hepimiz silahlarımızı geri alabildik.
+leave faye
+join prisila left
+prisila: Şimdi gidip ışığı bulalım..

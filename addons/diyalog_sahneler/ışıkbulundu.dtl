@@ -1,0 +1,12 @@
+[background arg="res://addons/diyalog_sahneler/karanlik_bolgesi.png" fade="0.0"]
+join prisila left
+prisila:  Işığın tutsak tutuldugu odayı bulduk.Şimdi hepimizin  bir  olup onu uyandrıması lazım.
+leave prisila
+join gregor left
+gregor: Bunun işe yarayacağına emin miyiz?
+leave gregor
+join Havoch left
+Havoch: Bizim güçlerimizin kaynağı Işıktan gelmekte tabii ki işe yarayacak.
+leave Havoch
+join faye left
+faye: Tamam hadi uyandıralım onu

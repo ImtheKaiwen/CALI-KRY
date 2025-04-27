@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=4 format=3 uid="uid://bpr0twyyqchdo"]
+
+[ext_resource type="Script" uid="uid://br23i1dkpy7l" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_3feby"]
+[ext_resource type="Script" uid="uid://ly65836f1jan" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_pj1ge"]
+
+[sub_resource type="Resource" id="Resource_snb7t"]
+script = ExtResource("1_3feby")
+overrides = {}
+
+[resource]
+script = ExtResource("2_pj1ge")
+name = "ortada"
+layer_list = Array[String]([])
+layer_info = {
+"": SubResource("Resource_snb7t")
+}
+base_overrides = {}
+layers = Array[ExtResource("1_3feby")]([])
+metadata/_latest_layer = ""

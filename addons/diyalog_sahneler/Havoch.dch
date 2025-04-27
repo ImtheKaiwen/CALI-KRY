@@ -1,0 +1,29 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 1, 1, 1),
+&"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": ""
+},
+&"default_portrait": "havoch",
+&"description": "",
+&"display_name": "Havoch",
+&"mirror": false,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"havoch": {
+"export_overrides": {
+"image": "\"res://addons/diyalog_sahneler/Havoch.png\""
+},
+"mirror": false,
+"offset": Vector2(25, -170),
+"scale": 0.6,
+"scene": ""
+}
+},
+&"scale": 1.0
+}
